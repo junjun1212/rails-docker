@@ -28,7 +28,7 @@ $ docker-compose build
 3.データベースのセットアップ
 
 ```bash
-$ docker-compose run web rails db:create
+$ docker-compose run --rm web rails db:create
 ```
 
 4.アプリケーションの起動
