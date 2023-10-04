@@ -1,24 +1,57 @@
-# README
+# Tasks
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+軽量なタスク管理アプリ。
+docker 化してローカルホスト環境で動作します。
+そのため環境構築には下記が前提条件になります。
 
-Things you may want to cover:
+### 前提条件
 
-* Ruby version
+- Docker インストールされていること
+- Docker Compose がインストールされていること
+- ある程度 Docker の知識があること
 
-* System dependencies
+### セットアップ手順
 
-* Configuration
+1.リポジトリのクローンとディレクトリ移動
 
-* Database creation
+```bash
+$ git clone https://github.com/junjun1212/rails-docker.git
+$ cd rails-docker
+```
 
-* Database initialization
+2.Docker イメージのビルドとアプリケーションの起動
 
-* How to run the test suite
+```bash
+$ docker-compose build
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+3.データベースのセットアップ
 
-* Deployment instructions
+```bash
+$ docker-compose run --rm web rails db:create
+```
 
-* ...
+4.アプリケーションの起動
+
+```bash
+$ docker-compose up
+```
+
+5.web アプリケーションへアクセス
+
+```
+http://localhost:3000
+```
+
+$ docker-compose up 後、シェルはそのままの状態(アプリケーションが起動している状態)で、上記アドレス上にてアプリケーションが動作しているはずです。
+
+6.終了方法
+
+```
+# docker-compose upをしたシェルに戻って、
+
+ctrl + c もしくは cmd + c
+```
+
+で終了します。
+再度起動は`4.`に戻る
