@@ -12,22 +12,32 @@ docker 化してローカルホスト環境で動作します。
 
 ### セットアップ手順
 
-1. リポジトリのクローンとディレクトリ移動
+1.リポジトリのクローンとディレクトリ移動
 
-```sh
+```bash
 $ git clone https://github.com/junjun1212/rails-docker.git
 $ cd rails-docker
 ```
 
-2. Docker イメージのビルドとアプリケーションの起動
+2.Docker イメージのビルドとアプリケーションの起動
 
-```sh
+```bash
+$ docker-compose build
+```
+
+3.データベースのセットアップ
+
+```bash
+$ docker-compose run web rails db:create
+```
+
+4.アプリケーションの起動
+
+```bash
 $ docker-compose up
 ```
 
-※上記コマンドで初回の docker imege 作成コマンド(docker-compose build)と、データベースのセットアップも内包しているため次回以降上記コマンドのみでアプリケーションが起動します。
-
-3.web アプリケーションへアクセス
+5.web アプリケーションへアクセス
 
 ```
 http://localhost:3000
@@ -35,7 +45,7 @@ http://localhost:3000
 
 $ docker-compose up 後、シェルはそのままの状態(アプリケーションが起動している状態)で、上記アドレス上にてアプリケーションが動作しているはずです。
 
-4.終了方法
+6.終了方法
 
 ```
 # docker-compose upをしたシェルに戻って、
@@ -44,4 +54,4 @@ ctrl + c もしくは cmd + c
 ```
 
 で終了します。
-再度起動は`2.`に戻る
+再度起動は`4.`に戻る
